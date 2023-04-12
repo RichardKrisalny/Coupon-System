@@ -1,0 +1,55 @@
+package app.core.filters;
+
+
+import app.core.jwt.ClientType;
+import app.core.jwt.User;
+import org.springframework.http.HttpStatus;
+
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+public class AuthorizationFilter implements Filter {
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+//		System.out.println("=== Authorization filter started");
+		HttpServletRequest httpRequest = (HttpServletRequest) request;
+		HttpServletResponse httpResponse = (HttpServletResponse) response;
+
+		// to handle pre-flight requests in case of cross-origin situations
+		if (httpRequest.getMethod().equalsIgnoreCase("options")) {
+//			System.out.println("=== PREFLIGHT (Authorization filter)");
+			chain.doFilter(request, response);
+		} else {
+			String requestUri = httpRequest.getRequestURI();
+			User user = (User) httpRequest.getAttribute("user");
+//			System.out.println("=== Authorization filter - request uri: " + requestUri);
+
+			if (requestUri.contains("/api/admin") && user.getClientType() != ClientType.ADMINISTRATOR) {
+				httpResponse.setHeader("Access-Control-Allow-Origin", "*");
+				httpResponse.setHeader("WWW-Authenticate", "Bearer realm=\"ADMIN API\"");
+				httpResponse.setHeader("Access-Control-Expose-Headers", "*");
+				httpResponse.sendError(HttpStatus.FORBIDDEN.value(), "Only Admin can access this zone!");
+			}else if (requestUri.contains("/api/company") && user.getClientType() != ClientType.COMPANY) {
+				httpResponse.setHeader("Access-Control-Allow-Origin", "*");
+				httpResponse.setHeader("WWW-Authenticate", "Bearer realm=\"COMPANY API\"");
+				httpResponse.setHeader("Access-Control-Expose-Headers", "*");
+				httpResponse.sendError(HttpStatus.FORBIDDEN.value(), "Only Company can access this zone!");
+			}else if (requestUri.contains("/api/customer") && user.getClientType() !=ClientType.CUSTOMER) {
+				httpResponse.setHeader("Access-Control-Allow-Origin", "*");
+				httpResponse.setHeader("WWW-Authenticate", "Bearer realm=\"CUSTOMER API\"");
+				httpResponse.setHeader("Access-Control-Expose-Headers", "*");
+				httpResponse.sendError(HttpStatus.FORBIDDEN.value(), "Only Customer can access this zone!");
+			}else {
+				chain.doFilter(request, response);
+			}
+		}
+
+		// 3. some more actions if needed
+//		System.out.println("=== Authorization filter is done");
+	}
+
+}

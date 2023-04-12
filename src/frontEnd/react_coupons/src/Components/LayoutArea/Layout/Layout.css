@@ -1,0 +1,22 @@
+.Layout {
+    height: 100%;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 25% 70% 5%;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.Layout header {
+    grid-column: span 6;
+}
+
+.Layout main {
+    overflow: auto;
+    grid-column: span 5;
+}
+
+.Layout footer {
+    grid-column: span 6;
+}

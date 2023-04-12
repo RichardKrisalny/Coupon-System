@@ -1,0 +1,44 @@
+.Menu .logout {
+  padding: 0;
+  margin: 0;
+  /* position: absolute; */
+  color: #175f32;
+  bottom: 6%;
+  left: 2.5%;
+  font-size: 30px;
+
+}
+
+.menuCss {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  font-size: 20px;
+  position: fixed;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  width: 13%;
+  left: 2.5%;
+  height: 50px;
+  text-decoration: none;
+  background-color: rgba(232, 251, 216, 0.3);
+}
+
+.menuCss:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  font-size: 20px;
+  position: fixed;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  width: 13%;
+  left: 2.5%;
+  height: 50px;
+  text-decoration: none;
+  background-color: rgba(255, 30, 101, 0.3);
+}

@@ -1,0 +1,125 @@
+html,body,#root {
+  margin: 0;
+height: 100%;
+width: 100%;
+text-align: center;
+color: #040404;
+/* background-image: linear-gradient(to right, #aa8181, #b6828f, #bb85a4, #b88bbc, #a995d6, #95a1e6, #7cadf1, #5eb9f7, #55c5f3, #5ecfeb, #72d8e2, #8be0da); */
+background-image: url("Assets/coupon.png");
+background-size: 100% 100%;
+}
+
+a{
+  color: rgb(8, 8, 8);
+}
+.a{
+  text-decoration: none;
+}
+
+.But{
+  color: white;
+  background-color:rgba(232, 251, 216, 0.3);
+  border-radius: 5px;
+}
+.But:hover{
+  color: white;
+  background-color: rgba(255, 30, 101, 0.3);
+  border-radius: 5px;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #070707; 
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #e5f7c7; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #fbd8ef; 
+}
+.Box{
+  display: inline-block;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px;
+}
+.select{
+  background-color: transparent;
+  border: none;
+  text-align: center;
+
+}
+.maxPrice{
+  background-color: transparent;
+   border-radius: 8px;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+
+.addForm > form{
+  width: 250px;
+  text-align: left;
+  margin: auto;
+
+}
+.addForm {
+  box-sizing: border-box;
+  position: absolute;
+  left: 43%;
+  top: 30%;
+}
+.addForm input, .addForm button{
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  border-radius: 5px;
+
+}
+.addForm span{
+  position: absolute;
+  margin-left: 20px;
+  color: red;
+}
+.Home {
+  width: 90%;
+  }
+
+  .couponForm input, .couponForm button{
+    width:90%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  
+  }
+
+  .couponForm span{
+    position: absolute;
+    margin-left: 20px;
+    color: red;
+
+  }
+  .couponForm > form{
+    width: 350px;
+    text-align: left;
+    margin: auto;
+  
+  }
+  .couponForm {
+    box-sizing: border-box;
+    position: absolute;
+    left: 39%;
+    top: 23%;
+  }
